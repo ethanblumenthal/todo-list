@@ -52,7 +52,10 @@ class TodoList extends Component {
 
     return (
       <div>
-        <h1>Todo List!</h1>
+        <header>
+          <h1>todo<span>list</span></h1>
+          <h2>A simple todo list app built with React, Node, Express, and MongoDB</h2>
+        </header>
         <TodoForm addTodo={this.addTodo} />
         <ul>
           {todos}

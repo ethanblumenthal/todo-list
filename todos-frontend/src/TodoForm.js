@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './TodoForm.css';
 
 class TodoForm extends Component {
   constructor(props) {
@@ -14,19 +15,24 @@ class TodoForm extends Component {
     });
   }
 
-  handleSubmit() {
-    this.props.addTodo(this.state.inputValue);
+  handleSubmit = (e) => {
+    if (e.key === 'Enter') {
+      this.props.addTodo(this.state.inputValue);
+      this.setState({inputValue: ''});
+    }
   }
 
   render() {
     return (
-      <div>
+      <div className="form">
         <input
+          className="todoInput"
           type="text"
+          placeholder="Insert your task here..."
           value={this.state.inputValue}
           onChange={this.handleChange}
+          onKeyPress={this.handleSubmit}
         />
-        <button onClick={this.handleSubmit}>Add Todo</button>
       </div>
     )
   }
