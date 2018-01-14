@@ -4,8 +4,7 @@ import './TodoItem.css';
 const TodoItem = ({name, completed, onDelete, onToggle}) => (
   <li className="list">
     <div
-      className="task"
-      style={{textDecoration: completed ? 'line-through' : 'none'}}
+      className={completed ? "task done" : "task"}
       onClick={onToggle}
     >
       {name}
